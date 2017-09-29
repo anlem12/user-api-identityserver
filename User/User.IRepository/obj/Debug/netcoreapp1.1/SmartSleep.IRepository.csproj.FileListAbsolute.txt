@@ -1,0 +1,11 @@
+G:\pro\netcore\smart_sleep\SmartSleep.IdentityServer\SmartSleep.IRepository\bin\Debug\netcoreapp1.1\SmartSleep.IRepository.deps.json
+G:\pro\netcore\smart_sleep\SmartSleep.IdentityServer\SmartSleep.IRepository\bin\Debug\netcoreapp1.1\SmartSleep.IRepository.dll
+G:\pro\netcore\smart_sleep\SmartSleep.IdentityServer\SmartSleep.IRepository\bin\Debug\netcoreapp1.1\SmartSleep.IRepository.pdb
+G:\pro\netcore\smart_sleep\SmartSleep.IdentityServer\SmartSleep.IRepository\bin\Debug\netcoreapp1.1\SmartSleep.Model.dll
+G:\pro\netcore\smart_sleep\SmartSleep.IdentityServer\SmartSleep.IRepository\bin\Debug\netcoreapp1.1\SmartSleep.Model.pdb
+G:\pro\netcore\smart_sleep\SmartSleep.IdentityServer\SmartSleep.IRepository\obj\Debug\netcoreapp1.1\SmartSleep.IRepository.csprojResolveAssemblyReference.cache
+G:\pro\netcore\smart_sleep\SmartSleep.IdentityServer\SmartSleep.IRepository\obj\Debug\netcoreapp1.1\SmartSleep.IRepository.csproj.CoreCompileInputs.cache
+G:\pro\netcore\smart_sleep\SmartSleep.IdentityServer\SmartSleep.IRepository\obj\Debug\netcoreapp1.1\SmartSleep.IRepository.AssemblyInfoInputs.cache
+G:\pro\netcore\smart_sleep\SmartSleep.IdentityServer\SmartSleep.IRepository\obj\Debug\netcoreapp1.1\SmartSleep.IRepository.AssemblyInfo.cs
+G:\pro\netcore\smart_sleep\SmartSleep.IdentityServer\SmartSleep.IRepository\obj\Debug\netcoreapp1.1\SmartSleep.IRepository.dll
+G:\pro\netcore\smart_sleep\SmartSleep.IdentityServer\SmartSleep.IRepository\obj\Debug\netcoreapp1.1\SmartSleep.IRepository.pdb

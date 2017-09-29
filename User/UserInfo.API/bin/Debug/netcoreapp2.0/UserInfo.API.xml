@@ -1,0 +1,513 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>UserInfo.API</name>
+    </assembly>
+    <members>
+        <member name="T:UserInfo.API.Cache.UserCache">
+            <summary>
+            用户缓存
+            </summary>
+        </member>
+        <member name="M:UserInfo.API.Cache.UserCache.#ctor(Enyim.Caching.IMemcachedClient)">
+            <summary>
+            
+            </summary>
+            <param name="cache"></param>
+        </member>
+        <member name="M:UserInfo.API.Cache.UserCache.SaveUserInfo(System.Int64,User.Model.UserShowModel)">
+            <summary>
+            缓存，用户信息
+            </summary>
+            <param name="userid"></param>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UserInfo.API.Cache.UserCache.GetUserInfo(System.Int64)">
+            <summary>
+            获取，用户信息
+            </summary>
+            <param name="userid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UserInfo.API.Cache.UserCache.RemoveUserInfo(System.Int64)">
+            <summary>
+            删除，用户信息
+            </summary>
+            <param name="userid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UserInfo.API.Cache.UserCache.SaveMobileValidateCode(System.String,System.String)">
+            <summary>
+            缓存，手机验证码
+            </summary>
+            <param name="mobile"></param>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UserInfo.API.Cache.UserCache.GetMobileValidateCode(System.String)">
+            <summary>
+            获取手机验证码
+            </summary>
+            <param name="mobile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UserInfo.API.Cache.UserCache.RemoveMobileValidateCode(System.String)">
+            <summary>
+            删除手机验证码
+            </summary>
+            <param name="mobile"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UserInfo.API.Controllers.UserController">
+            <summary>
+            用户
+            </summary>
+        </member>
+        <member name="M:UserInfo.API.Controllers.UserController.#ctor(User.IRepository.IUserService,Microsoft.Extensions.Logging.ILoggerFactory,Microsoft.Extensions.Options.IOptions{UserInfo.API.Core.SiteConfig},Enyim.Caching.IMemcachedClient)">
+            <summary>
+            
+            </summary>
+            <param name="iuser"></param>
+            <param name="loggerFactory"></param>
+            <param name="options"></param>
+            <param name="cache"></param>
+        </member>
+        <member name="M:UserInfo.API.Controllers.UserController.Register(UserInfo.API.FromData.UserRegisterFromData)">
+            <summary>
+            用户注册
+            </summary>
+            <param name="data">用户注册数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:UserInfo.API.Controllers.UserController.ChangePassWord(UserInfo.API.FromData.ChangePassWordFromData)">
+            <summary>
+            修改密码
+            </summary>
+            <param name="data">修改密码</param>
+            <remarks>
+            请求头中需要传入：Authorization:Bearer Token
+            
+            Java Code:
+            
+                OkHttpClient client = new OkHttpClient();
+                MediaType mediaType = MediaType.parse("application/json");
+                RequestBody body = RequestBody.create(mediaType, "{\"oldpwd\":\"111111\",\"newpwd\":\"222222\"}");
+                Request request = new Request.Builder()
+                .url("http://domain/api/user/changepassword")
+                .post(body)
+                .addHeader("authorization", "Bearer XXXXXXXX")
+                .addHeader("content-type", "application/json")
+                .addHeader("cache-control", "no-cache")
+                .addHeader("postman-token", "33edae10-5ff6-5818-966f-453a09c82477")
+                .build();
+                Response response = client.newCall(request).execute();
+            
+            
+            </remarks>
+            <response code="401">未授权，请传入access_token</response>
+            <returns></returns>
+        </member>
+        <member name="M:UserInfo.API.Controllers.UserController.ChangeNickName(UserInfo.API.FromData.ChangeNickNameFromData)">
+            <summary>
+            修改昵称
+            </summary>
+            <param name="data">昵称（昵称长度为3至10位）</param>
+            <response code="401">未授权，请传入access_token</response>
+            <returns></returns>
+        </member>
+        <member name="M:UserInfo.API.Controllers.UserController.ChangeHeaderPortrait(UserInfo.API.FromData.ChangeHeaderPortraitFromData)">
+            <summary>
+            修改头像
+            </summary>
+            <param name="data">将图片转成base64后上传</param>
+            <response code="401">未授权，请传入access_token</response>
+            <returns></returns>
+        </member>
+        <member name="M:UserInfo.API.Controllers.UserController.FindPassWord(UserInfo.API.FromData.FindPassWordFromData)">
+            <summary>
+            找回密码
+            </summary>
+            <param name="data">找回密码请求参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:UserInfo.API.Controllers.UserController.GetMobileValidateCode(UserInfo.API.FromData.MobileValidateCodeFromData)">
+            <summary>
+            获取手机验证码
+            </summary>
+            <param name="data">获取验证码请求参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:UserInfo.API.Controllers.UserController.GetUserInfo">
+             <summary>
+             获取用户信息
+             </summary>
+             <remarks>
+             请求头中需要传入：Authorization:Bearer Token
+             
+             Java Code:
+             
+             
+                 OkHttpClient client = new OkHttpClient();
+                 Request request = new Request.Builder()
+                 .url("http://domain/api/user/get")
+                 .get()
+                 .addHeader("authorization", "Bearer XXXXXXXXXXXXXXXXXXXXXXXX")
+                 .addHeader("cache-control", "no-cache")
+                 .addHeader("postman-token", "d742b31c-7811-40a8-a3df-2a0c3b8bdce4")
+                 .build();
+                 Response response = client.newCall(request).execute();
+             
+             
+             </remarks>
+            
+             <response>
+             
+                 {
+                 "statecode": "ok",
+                 "content": {
+                             "nickname": "测试一下子就是这",
+                             "headportrait": "/profile/userheader/20170525/94afa8c8343148b99bf3a824d0fc2bf5.jpg"
+                 },
+                 "errorcode": null
+                 }
+             
+             
+             </response>
+             <response code="401">未授权，请传入access_token</response>
+        </member>
+        <member name="M:UserInfo.API.Controllers.UserController.Base64StringToImage(System.String,System.String,System.String)">
+            <summary>
+            将base64转成图片
+            </summary>
+            <param name="strbase64"></param>
+            <param name="filePath">保存的文件夹</param>
+            <param name="physicsPath">物理路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:UserInfo.API.Core.BaseController.GetUserId">
+            <summary>
+            返回登录用户ID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UserInfo.API.Core.Encrypt.AESEncrypt(System.String,System.String)">
+            <summary>
+            AES加密
+            </summary>
+            <param name="input"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UserInfo.API.Core.Encrypt.LoginPwd(System.String)">
+            <summary>
+            加密
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:UserInfo.API.Core.LJLJRequest">
+            <summary>
+            Request
+            </summary>
+        </member>
+        <member name="M:UserInfo.API.Core.LJLJRequest.RequestGet(System.String)">
+            <summary>
+            Http Get
+            </summary>
+            <param name="strUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:UserInfo.API.Core.LJLJRequest.GetUserIp(Microsoft.AspNetCore.Mvc.Controller)">
+            <summary>
+            获得当前页面客户端的IP
+            </summary>
+            <returns>当前页面客户端的IP</returns>
+        </member>
+        <member name="T:UserInfo.API.Core.SiteConfig">
+            <summary>
+            站点配置信息
+            </summary>
+        </member>
+        <member name="P:UserInfo.API.Core.SiteConfig.client">
+            <summary>
+            客户端ID
+            </summary>
+        </member>
+        <member name="P:UserInfo.API.Core.SiteConfig.secret">
+            <summary>
+            客户端秘钥
+            </summary>
+        </member>
+        <member name="P:UserInfo.API.Core.SiteConfig.uploadUserHeaderPortraitPhysicsPath">
+            <summary>
+            上传用户头像保存的物理路径
+            </summary>
+        </member>
+        <member name="T:UserInfo.API.Core.Thumbnail">
+            <summary>
+            图片剪切
+            </summary>
+        </member>
+        <member name="M:UserInfo.API.Core.Thumbnail.SetImage(System.String)">
+            <summary>
+            创建
+            </summary>
+            <param name="filePath">原始图片路径</param>
+        </member>
+        <member name="P:UserInfo.API.Core.Thumbnail.GetCurrentImg">
+            <summary>
+            返回当前图像对象
+            </summary>
+        </member>
+        <member name="M:UserInfo.API.Core.Thumbnail.ThumbnailCallback">
+            <summary>
+            回调
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:UserInfo.API.Core.Thumbnail.GetImage(System.Int32,System.Int32)">
+            <summary>
+            生成缩略图,返回缩略图的Image对象
+            </summary>
+            <param name="Width">缩略图宽度</param>
+            <param name="Height">缩略图高度</param>
+            <returns>缩略图的Image对象</returns>
+        </member>
+        <member name="M:UserInfo.API.Core.Thumbnail.SaveThumbnailImage(System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            保存缩略图
+            </summary>
+            <param name="Width"></param>
+            <param name="Height"></param>
+            <param name="isequality">是否要等比缩放</param>
+        </member>
+        <member name="M:UserInfo.API.Core.Thumbnail.SaveImage(System.Int32,System.Int32,System.DrawingCore.Imaging.ImageFormat,System.Boolean)">
+            <summary>
+            生成缩略图并保存
+            </summary>
+            <param name="Width">缩略图的宽度</param>
+            <param name="Height">缩略图的高度</param>
+            <param name="imgformat">保存的图像格式</param>
+            <param name="isequality">是否要等比缩放</param>
+            <returns>缩略图的Image对象</returns>
+        </member>
+        <member name="M:UserInfo.API.Core.Thumbnail.SaveImage(System.DrawingCore.Image,System.String,System.DrawingCore.Imaging.ImageCodecInfo)">
+            <summary>
+            保存图片
+            </summary>
+            <param name="image">Image 对象</param>
+            <param name="savePath">保存路径</param>
+            <param name="ici">指定格式的编解码参数</param>
+        </member>
+        <member name="M:UserInfo.API.Core.Thumbnail.GetCodecInfo(System.String)">
+            <summary>
+            获取图像编码解码器的所有相关信息
+            </summary>
+            <param name="mimeType">包含编码解码器的多用途网际邮件扩充协议 (MIME) 类型的字符串</param>
+            <returns>返回图像编码解码器的所有相关信息</returns>
+        </member>
+        <member name="M:UserInfo.API.Core.Thumbnail.ResizeImage(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            计算新尺寸
+            </summary>
+            <param name="width">原始宽度</param>
+            <param name="height">原始高度</param>
+            <param name="maxWidth">最大新宽度</param>
+            <param name="maxHeight">最大新高度</param>
+            <returns></returns>
+        </member>
+        <member name="M:UserInfo.API.Core.Thumbnail.GetFormat(System.String)">
+            <summary>
+            得到图片格式
+            </summary>
+            <param name="name">文件名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:UserInfo.API.Core.Thumbnail.MakeCutImage(System.String,System.String,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            制作剪切图
+            </summary>
+            <param name="srcImage">源文件路径</param>
+            <param name="destImage">生成新文件路径</param>
+            <param name="x"></param>
+            <param name="y"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+        </member>
+        <member name="M:UserInfo.API.Core.Thumbnail.MakeSquareImage(System.DrawingCore.Image,System.String,System.Int32)">
+            <summary>
+            制作小正方形
+            </summary>
+            <param name="image">图片对象</param>
+            <param name="newFileName">新地址</param>
+            <param name="newSize">长度或宽度</param>
+        </member>
+        <member name="M:UserInfo.API.Core.Thumbnail.MakeSquareImage(System.String,System.String,System.Int32)">
+            <summary>
+            制作小正方形
+            </summary>
+            <param name="fileName">图片文件名</param>
+            <param name="newFileName">新地址</param>
+            <param name="newSize">长度或宽度</param>
+        </member>
+        <member name="M:UserInfo.API.Core.Thumbnail.MakeThumbnailImage(System.DrawingCore.Image,System.String,System.Int32,System.Int32)">
+            <summary>
+            制作缩略图
+            </summary>
+            <param name="original">图片对象</param>
+            <param name="newFileName">新图路径</param>
+            <param name="maxWidth">最大宽度</param>
+            <param name="maxHeight">最大高度</param>
+        </member>
+        <member name="M:UserInfo.API.Core.Thumbnail.MakeThumbnailImage(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            制作缩略图
+            </summary>
+            <param name="fileName">文件名</param>
+            <param name="newFileName">新图路径</param>
+            <param name="maxWidth">最大宽度</param>
+            <param name="maxHeight">最大高度</param>
+        </member>
+        <member name="M:UserInfo.API.Core.Thumbnail.Dispose">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:UserInfo.API.FromData.ChangePassWordFromData">
+            <summary>
+            修改密码
+            </summary>
+        </member>
+        <member name="P:UserInfo.API.FromData.ChangePassWordFromData.oldpwd">
+            <summary>
+            旧密码
+            </summary>
+        </member>
+        <member name="P:UserInfo.API.FromData.ChangePassWordFromData.newpwd">
+            <summary>
+            新密码（长度6至16位）
+            </summary>
+        </member>
+        <member name="T:UserInfo.API.FromData.ChangeNickNameFromData">
+            <summary>
+            修改昵称
+            </summary>
+        </member>
+        <member name="P:UserInfo.API.FromData.ChangeNickNameFromData.nickname">
+            <summary>
+            昵称（昵称长度为3至10位）
+            </summary>
+        </member>
+        <member name="T:UserInfo.API.FromData.ChangeHeaderPortraitFromData">
+            <summary>
+            修改头像
+            </summary>
+        </member>
+        <member name="P:UserInfo.API.FromData.ChangeHeaderPortraitFromData.base64">
+            <summary>
+            将图片转成base64后上传(jpg,png)
+            </summary>
+        </member>
+        <member name="T:UserInfo.API.FromData.FindPassWordFromData">
+            <summary>
+            找回密码请求参数
+            </summary>
+        </member>
+        <member name="P:UserInfo.API.FromData.FindPassWordFromData.mobile">
+            <summary>
+            手机号码
+            </summary>
+        </member>
+        <member name="P:UserInfo.API.FromData.FindPassWordFromData.password">
+            <summary>
+            密码（长度6至16位）
+            </summary>
+        </member>
+        <member name="P:UserInfo.API.FromData.FindPassWordFromData.validataCode">
+            <summary>
+            手机验证码
+            </summary>
+        </member>
+        <member name="T:UserInfo.API.FromData.MobileValidateCodeFromData">
+            <summary>
+            获取验证码请求参数
+            </summary>
+        </member>
+        <member name="P:UserInfo.API.FromData.MobileValidateCodeFromData.mobile">
+            <summary>
+            手机号码
+            </summary>
+        </member>
+        <member name="P:UserInfo.API.FromData.MobileValidateCodeFromData.doaction">
+            <summary>
+            动作：注册\找回密码
+            </summary>
+        </member>
+        <member name="P:UserInfo.API.FromData.MobileValidateCodeFromData.requestTime">
+            <summary>
+            请求时间：（yyyy-MM-dd HH:mm:ss）（10分钟内有效）
+            </summary>
+        </member>
+        <member name="P:UserInfo.API.FromData.MobileValidateCodeFromData.fromdevice">
+            <summary>
+            来源设备：Android\IOS\WEB
+            </summary>
+        </member>
+        <member name="P:UserInfo.API.FromData.MobileValidateCodeFromData.md5">
+            <summary>
+            md5(client+请求时间+secret+fromdevice)
+            </summary>
+        </member>
+        <member name="T:UserInfo.API.FromData.UserRegisterFromData">
+            <summary>
+            用户注册信息
+            </summary>
+        </member>
+        <member name="P:UserInfo.API.FromData.UserRegisterFromData.mobile">
+            <summary>
+            手机号
+            </summary>
+        </member>
+        <member name="P:UserInfo.API.FromData.UserRegisterFromData.password">
+            <summary>
+            密码（长度6至16位）
+            </summary>
+        </member>
+        <member name="P:UserInfo.API.FromData.UserRegisterFromData.validatecode">
+            <summary>
+            验证码
+            </summary>
+        </member>
+        <member name="P:UserInfo.API.FromData.UserRegisterFromData.ip">
+            <summary>
+            用户端IP
+            </summary>
+        </member>
+        <member name="T:UserInfo.API.Startup">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:UserInfo.API.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:UserInfo.API.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:UserInfo.API.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment,Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+            <param name="loggerFactory"></param>
+        </member>
+    </members>
+</doc>

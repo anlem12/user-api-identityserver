@@ -1,0 +1,16 @@
+2017-09-26 15:46:06.7519 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: allfile
+2017-09-26 15:46:06.7644 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: ownFile-web
+2017-09-26 15:46:06.8223 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: allfile
+2017-09-26 15:46:06.8223 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: ownFile-web
+2017-09-26 16:39:30.4016 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: allfile
+2017-09-26 16:39:30.4170 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: ownFile-web
+2017-09-26 16:39:30.4698 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: allfile
+2017-09-26 16:39:30.4698 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: ownFile-web
+2017-09-26 16:45:03.1744 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: allfile
+2017-09-26 16:45:03.1830 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: ownFile-web
+2017-09-26 16:45:03.2324 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: allfile
+2017-09-26 16:45:03.2324 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: ownFile-web
+2017-09-26 16:45:57.6811 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: allfile
+2017-09-26 16:45:57.7016 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: ownFile-web
+2017-09-26 16:45:57.7517 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: allfile
+2017-09-26 16:45:57.7517 Warn Unused target detected. Add a rule for this target to the configuration. TargetName: ownFile-web

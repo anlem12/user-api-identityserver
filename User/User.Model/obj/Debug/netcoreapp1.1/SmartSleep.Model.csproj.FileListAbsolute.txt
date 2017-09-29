@@ -1,0 +1,8 @@
+G:\pro\netcore\smart_sleep\SmartSleep.IdentityServer\SmartSleep.Model\bin\Debug\netcoreapp1.1\SmartSleep.Model.deps.json
+G:\pro\netcore\smart_sleep\SmartSleep.IdentityServer\SmartSleep.Model\bin\Debug\netcoreapp1.1\SmartSleep.Model.dll
+G:\pro\netcore\smart_sleep\SmartSleep.IdentityServer\SmartSleep.Model\bin\Debug\netcoreapp1.1\SmartSleep.Model.pdb
+G:\pro\netcore\smart_sleep\SmartSleep.IdentityServer\SmartSleep.Model\obj\Debug\netcoreapp1.1\SmartSleep.Model.csproj.CoreCompileInputs.cache
+G:\pro\netcore\smart_sleep\SmartSleep.IdentityServer\SmartSleep.Model\obj\Debug\netcoreapp1.1\SmartSleep.Model.AssemblyInfoInputs.cache
+G:\pro\netcore\smart_sleep\SmartSleep.IdentityServer\SmartSleep.Model\obj\Debug\netcoreapp1.1\SmartSleep.Model.AssemblyInfo.cs
+G:\pro\netcore\smart_sleep\SmartSleep.IdentityServer\SmartSleep.Model\obj\Debug\netcoreapp1.1\SmartSleep.Model.dll
+G:\pro\netcore\smart_sleep\SmartSleep.IdentityServer\SmartSleep.Model\obj\Debug\netcoreapp1.1\SmartSleep.Model.pdb

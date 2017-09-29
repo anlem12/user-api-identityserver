@@ -1,0 +1,5 @@
+G:\pro\netcore\UserIdentityServer\User.IdentityServer\UserInfo.API
+--output-path=obj\Release\netcoreapp2.0\
+--application-name=UserInfo.API
+--content-root=G:\pro\netcore\UserIdentityServer\User.IdentityServer\UserInfo.API
+--file=
