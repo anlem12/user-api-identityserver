@@ -59,7 +59,7 @@ namespace UserInfo.API.Cache
 
         private string GetUserInfoKey(long userid)
         {
-            return string.Format("/agvajoy/usersystem/userinfo/{0}", userid);
+            return string.Format("/usersystem/userinfo/{0}", userid);
         }
 
         #endregion
@@ -98,7 +98,7 @@ namespace UserInfo.API.Cache
 
         private string GetMobileValidateCodeKey(string mobile)
         {
-            return string.Format("/agvajoy/user/mobile/{0}/code", mobile);
+            return string.Format("/user/mobile/{0}/code", mobile);
         }
         #endregion
     }
